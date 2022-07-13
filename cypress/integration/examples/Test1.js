@@ -40,4 +40,16 @@ describe('My first test suite', function()
           })
 
      })
+
+     it('4- Understanding manually promises case', function(){
+         
+          cy.get('.brand').then(function(logoElement){
+               cy.log(logoElement.text());
+          })
+           //we need to use then() to make promises manually, when cypress can't procces some petitions like
+                                                                                                         // const errorPromise=cy.get('.brand');
+                                                                                                         // cy.log(errorPromise.text())
+
+     })
+
 })
