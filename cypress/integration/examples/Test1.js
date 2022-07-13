@@ -2,6 +2,7 @@
 
 describe('My first test suite', function()
 {
+
     it('1- My first test case',function() {
 
         cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/');
@@ -9,22 +10,24 @@ describe('My first test suite', function()
    })
 
    it('2- Type something to search in search bar', function() {
+     cy.get('.products').as('varProducts')
         cy.get('.search-keyword').type('ca');
         cy.wait(2000)
         /*two ways to select products of a list (like ecommerce): first of all is filtering all the products and select only products with attribute visible*/
         cy.get('.product:visible').should('have.length',4)
         //the second way is using find() inside the list elements who contains .product class, entering through the class name to their child elements
-        cy.get('.products').find('.product').should('have.length',4)
+        cy.get('@varProducts').find('.product').should('have.length',4)
 
         
    })
 
 
    it('3- Select one product', function(){
+     cy.get('.products').as('varProducts')
           // //three ways: the first is selecting the eleemnt by it unique css selector 
           cy.get(':nth-child(1) > .product-action > button').click();
           // //the second is filtering elements using find, equal and contains 
-          cy.get('.products').find('.product').eq(0).contains('ADD TO CART').click();
+          cy.get('@varProducts').find('.product').eq(0).contains('ADD TO CART').click();
 
           //the third way is the optimous using each to iterate in a "table" selecting 1 element and working uniquely on it.
           
