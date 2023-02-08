@@ -6,7 +6,6 @@
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/nicoosses/cypress-test/issues"
   },
-  "homepage": "https://github.com/nicoosses/cypress-test#readme"
+  "homepage": "https://github.com/nicoosses/cypress-test#readme",
+  "dependencies": {
+    "cypress-iframe": "^1.0.1"
+  }
 }
